@@ -1,0 +1,103 @@
+/* General Styles */
+body {
+    margin: 0; /* Remove default margins */
+    font-family: Arial, sans-serif; /* Use a clean font */
+    background-color: #f4f4f4; /* Light background color */
+}
+
+.title {
+    text-align: center;
+    color: #222222;
+    font-size: 4em;
+    font-weight: bold;
+    text-transform: capitalize;
+    font-family: "Roboto", Helvetica, sans-serif;
+    opacity: 0;
+    transform: scale(0.5);
+    animation: fadeInGrow 1.5s ease forwards;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+button {
+    padding: 10px 20px;  /* Adjust padding to make the button more compact */
+}
+
+.container {
+    display: flex;              /* Flexbox layout */
+    height: 130vh;              /* Full viewport height */
+    width: 100%;                /* Full width of the page */
+}
+
+/* Left Half (Images) */
+.images {
+    flex: 1;                    /* Take up 50% of the width */
+    background-color: #e0e0e0;  /* Light gray background */
+    display: flex;              /* Flexbox for centering content */
+    flex-direction: column;     /* Stack images vertically */
+    justify-content: center;    /* Center images vertically */
+    align-items: center;        /* Center images horizontally */
+}
+
+.images img {
+    cursor: pointer;
+    width: 80%;                 /* Make images responsive */
+    max-width: 550px;           /* Limit maximum width */
+    margin: 15px 0;             /* Space between images */
+    border: 2px solid #ccc;     /* Optional border for styling */
+    border-radius: 10px;        /* Rounded corners */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.images img:hover {
+    opacity: 0.7;
+    transform: scale(.90);
+}
+
+.spacer {
+    height: 30px; /* Space between the two sections */
+}
+
+/* Right Half (Text) */
+.text {
+    flex: 1;                    /* Take up 50% of the width */
+    padding: 30px;              /* Add spacing inside the text box */
+    background-color: white;    /* White background for contrast */
+    color: #333;               /* Dark gray text color */
+    display: flex;
+    flex-direction: column;
+}
+
+.text h1 {
+    font-size: 2.5em;           /* Large heading size */
+    margin-bottom: 20px;      /* Space below the heading */
+}
+
+.text p {
+    font-size: 1.2em;           /* Larger font for readability */
+    line-height: 1.6;           /* Increase spacing between lines */
+    margin-bottom: 15px;        /* Space between paragraphs */
+}
+
+@media (max-width: 768px) {
+    /* Stack the sections vertically on smaller screens */
+    .container {
+        flex-direction: column; /* Switch from horizontal to vertical */
+    }
+
+    .images, .text {
+        flex: none;             /* Reset flex properties */
+        width: 100%;            /* Make sections full width */
+    }
+}
+
+@keyframes fadeInGrow {
+    0% {
+        opacity: 0;
+        transform: scale(0.5); /* Start small */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1); /* Grow to normal size */
+    }
+}

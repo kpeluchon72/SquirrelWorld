@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Squirel World</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 class="title">Squirrels are Awesome</h1>
+    <div class="container">
+        <!-- Left Half: Images -->
+        <div class="images">
+            <img id="image1" src="https://www.pbs.org/wgbh/nova/media/images/iStock-473012660.width-2000.jpg" alt="First Image" onclick="cycleImage(1)">
+            <img id="image2" src="https://i.guim.co.uk/img/media/4b94502a42e3cbbd3176ef0b86d0cd493cf2cc5b/0_57_4800_2882/master/4800.jpg?width=620&dpr=2&s=none&crop=none" alt="Second Image", onclick="cycleImage(2)">
+        </div>
+
+        <!-- Right Half: Text -->
+        <div class="text">
+            <h1>What is a Squirrel?</h1>
+            <p> Squirrels are members of the family Sciuridae, a family that includes small or medium-sized rodents. The squirrel family includes tree squirrels, ground squirrels (including chipmunks and prairie dogs, among others), and flying squirrels. Squirrels are indigenous to the Americas, Eurasia, and Africa, and were introduced by humans to Australia. The earliest known fossilized squirrels date from the Eocene epoch, and among other living rodent families, the squirrels are most closely related to the mountain beaver and dormice.</p>
+
+            <div class="spacer"></div>
+            
+            <h1>Lifetime</h1>
+            <p> Squirrels live in almost every habitat, from tropical rainforest to semiarid desert, avoiding only the high polar regions and the driest of deserts. They are predominantly herbivorous, subsisting on seeds and nuts, but many will eat insects and even small vertebrates. Many juvenile squirrels die in the first year of life. Adult squirrels can have a lifespan of 5 to 10 years in the wild. Some can survive 10 to 20 years in captivity. Premature death may occur when a nest falls from the tree, in which case the mother may abandon her young if their body temperature is not correct. Many such baby squirrels have been rescued and fostered by a professional wildlife rehabilitator until they could be safely returned to the wild, although the density of squirrel populations in many places and the constant care required by premature squirrels means that few rehabilitators are willing to spend their time doing this and such animals are routinely euthanized instead.</p>
+        </div>
+
+    </div>
+
+    <script>
+
+        function cycleImage(imageId) {
+            // Get the image element based on the ID passed
+            var imgElement = document.getElementById("image" + imageId);
+            
+            // Array of images to cycle through
+            var images = [
+                "https://www.pbs.org/wgbh/nova/media/images/iStock-473012660.width-2000.jpg",
+                "https://i.guim.co.uk/img/media/4b94502a42e3cbbd3176ef0b86d0cd493cf2cc5b/0_57_4800_2882/master/4800.jpg?width=620&dpr=2&s=none&crop=none",
+                "https://www.dupageforest.org/hubfs/Your-Links-to-Nature/Photos/Blog-Nature-Storytellers/10%20Nutty%20Squirrel%20Facts/squirrel%20cropped.jpg",
+                "https://images.squarespace-cdn.com/content/v1/5d76d70856d71978757182e7/1704327055093-TDGJ4SXVZ7PBK58L5J8A/D4S9110.jpg"
+            ];
+
+            // Get the current source of the image
+            var currentSrc = imgElement.src;
+            
+            // Find the index of the current image in the images array
+            var currentIndex = images.indexOf(currentSrc);
+            
+            // Set the new source to the next image in the array (looping back to the first one if it's the last image)
+            var nextIndex = (currentIndex + 1) % images.length;
+            imgElement.src = images[nextIndex];
+        }
+
+    </script>
+</body>
+</html>
